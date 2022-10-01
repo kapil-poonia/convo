@@ -86,18 +86,18 @@ app.post("/register", (req, res) => {
             console.log(error.message);
             return res.redirect("/register");
         }
-        passport.authenticate("local")(req, res, function () {
+        passport.authenticate("local")(req, res, () => {
             res.redirect("/");
         });
     });
 });
 //handle logout
-app.get("/logout", function (req, res) {
+app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("back");
 });
 
-app.get("/sitemap.xml", function (req, res) {
+app.get("/sitemap.xml",  (req, res) => {
     res.sendFile("sitemap.xml", {
         root: path.join(__dirname, "../public"),
     });
